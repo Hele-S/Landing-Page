@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page HTML/CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="geral">
-    <header>
-        <a href="#"><img src="./imgs/logo2.png" alt=""></a>
-        <ul>
-            <li class="item"><a href="#" class="Botao1">Login</a></li>
-            <li class="item"><a href="#" class="Botao1">Função</a></li>
-            <li class="item"><a href="#" class="Botao1">Suporte</a></li>
-            <li class="item" id="sobre-nos"><a href="#" class="Botao1">Sobre nós</a></li>
-            <!-- <li class="item">5</li> -->
-        </ul>
-    </header>
+        <header>
+            <a href="#"><img src="./imgs/logo2.png" alt=""></a>
+            <h4>Lorem Ipsum Hotels</h4>
+            <ul>
+                <li class="item"><a href="#" class="Botao1">Cadastro</a></li>
+                <li class="item"><a href="#" class="Botao1">Função</a></li>
+                <li class="item"><a href="#" class="Botao1">Suporte</a></li>
+                <li class="item" id="sobre-nos"><a href="#" class="Botao1">Sobre nós</a></li>
+                <!-- <li class="item">5</li> -->
+            </ul>
+        </header>
 
-    <div class="container">
-        <div class="parallax-container"></div>
-        <div id="panel">
-            <h1>Bem-vindo!</h1>
-            <hr>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tenetur consectetur quo recusandae. Aliquid repellendus ipsa ut esse quam maiores aliquam obcaecati natus provident ex? A totam ipsa iure nostrum adipisci voluptates fugit praesentium, quia quidem, alias, nisi ea corrupti. Obcaecati est, quidem vel ipsam illo exercitationem praesentium earum! Voluptates.</p>
-            <div class="fotos">
-                <!-- <table>
-                    <tr>
-                        <td><img src="https://barreirasbahia.com.br/images/2021/como-escolher-um-bom-hotel.jpg" alt="Foto 1" class="foto-indiv"></td>
-                        <td><img src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Foto 2" class="foto-indiv"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/10/BA_RA-HOTEL-4.jpg?w=1024" alt="Foto 3" class="foto-indiv"></td>
-                        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_kIYfyqgeFIjYXkxFKXq4rl-PnQ27Z17Rw&s" alt="Foto 4" class="foto-indiv"></td>
-                    </tr> 
-                </table> -->
-                <ul class="list">
-                    <!-- <li><img src="https://barreirasbahia.com.br/images/2021/como-escolher-um-bom-hotel.jpg" alt="Foto 1" class="foto-indiv"></li> -->
-                    <li><img src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Foto 1" class="foto-indiv"></li>
-                    <li id="li-foto2"><img src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/10/BA_RA-HOTEL-4.jpg?w=1024" alt="Foto 2" id="foto2" class="foto-indiv"></li>
-                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_kIYfyqgeFIjYXkxFKXq4rl-PnQ27Z17Rw&s" alt="Foto 3"  class="foto-indiv"></li>
-                </ul>
+        <div class="container">
+            <div class="parallax-container"></div>
+            <div id="panel">
+                <h1>Bem-vindo!</h1>
+                <hr>
+                <p>Descubra um refúgio de conforto e elegância na Lorem Ipsum Hotels, onde cada estadia é uma
+                    experiência memorável. Nossas propriedades, localizadas nos destinos mais desejados, combinam luxo
+                    sofisticado com hospitalidade acolhedora, garantindo que você se sinta em casa, independentemente de
+                    onde estiver.</p>
+                <div class="fotos">
+                    <ul class="list">
+                        <!-- <li><img src="https://barreirasbahia.com.br/images/2021/como-escolher-um-bom-hotel.jpg" alt="Foto 1" class="foto-indiv"></li> -->
+                        <li><img src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Foto 1"
+                                class="foto-indiv"></li>
+                        <li id="li-foto2"><img
+                                src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/10/BA_RA-HOTEL-4.jpg?w=1024"
+                                alt="Foto 2" id="foto2" class="foto-indiv"></li>
+                        <li id="li-foto3"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_kIYfyqgeFIjYXkxFKXq4rl-PnQ27Z17Rw&s"
+                                alt="Foto 3" class="foto-indiv"></li>
+                    </ul>
+                </div>
             </div>
         </div>
+        <div class="bridge">
+            <h1>Conecte-se Conosco</h1>
+            <hr>
+            <p>Fique atualizado sobre nossas novidades e ofertas especiais. Inscreva-se na nossa newsletter para não
+                perder nossas promoções e lançamentos. Na Lorem Ipsum Hotels, estamos sempre pensando em como tornar sua
+                próxima estadia ainda melhor.</p>
+            <form action="">
+                <label for="userName">Nome de usuário</label>
+                <input type="text" name="userName" id="userName">
+                <label for="userEmail">Email do usuário</label>
+                <input type="text" name="userName" id="userEmail">
+                <label for="userPassword">Senha do usuário</label>
+                <input type="password" name="userName" id="userPassword">
+                <label for="userConfirmPassword">Confirmar senha</label>
+                <input type="password" name="userName" id="userConfirmPassword">
+            </form>
+
+        </div>
+
+
+
     </div>
-</div>
+    <!-- <footer>
+        <div class="footer-contents">
+            <div class="networks"></div>
+            <div class="footer-text">sadasa</div>
+        </div>
+    </footer> -->
 </body>
+
 </html>
 <!--   B3B3B3 DAA520 00120B -->
