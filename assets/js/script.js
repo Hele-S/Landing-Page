@@ -1,6 +1,6 @@
-submitSent() {
-    document.getElementById(userPassword) = teste
-}
+// submitSent() 
+// {    alert("teste");
+// }
 
 // SLIDES QUARTOS
 let slideIndex = 0;
@@ -21,6 +21,14 @@ function antSlide() {
 function proxSlide() {
   slideIndex = (slideIndex < slides.length - 1) ? slideIndex + 1 : 0;
   mostrarSlides();
+//   alert("teste")
 }
 
-mostrarSlides();
+// Inicializa a primeira imagem ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarSlides();
+    
+    // Adiciona os manipuladores de evento aos botões
+    document.querySelector('.proximo').addEventListener('click', antSlide);
+    document.querySelector('.anterior').addEventListener('click', proxSlide);
+  });
