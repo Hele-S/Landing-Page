@@ -1,104 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Design Example</title>
-    <style>
-        /* styles.css */
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Estilo base */
-body {
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-}
-
-@media (max-width: 768px) {
-    header {
-        text-align: left;
-        padding: 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
-
-    main {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        font-size: 18px;
-        padding: 5px;
-    }
-
-    nav ul li {
-        margin: 3px 0;
-    }
-
-    main {
-        padding: 5px;
-    }
-}
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel de Imagens</title>
+<style>
+  /* Estilos para o carrossel */
+  .carousel {
+    width: 80%; /* largura do carrossel */
+    margin: 0 auto; /* centralizar o carrossel */
+    overflow: hidden; /* ocultar imagens além do contêiner */
+    position: relative; /* posição relativa para alinhar os botões */
+    height: 500px; /* altura do carrossel */
+  }
+  
+  .carousel-container {
+    position: absolute; /* permite o posicionamento absoluto das imagens dentro do contêiner */
+    width: 100%; /* largura do contêiner */
+    height: 100%; /* altura do contêiner */
+  }
+  
+  .carousel-item {
+    position: absolute; /* permite a sobreposição das imagens */
+    width: 100%; /* largura das imagens */
+    height: 100%; /* altura das imagens */
+    opacity: 0; /* todas as imagens invisíveis por padrão */
+    transition: opacity 0.5s ease; /* transição suave para o efeito de fade */
+  }
+  
+  .carousel-item.active {
+    opacity: 1; /* imagem ativa visível */
+  }
+  
+  .carousel-btn {
+    position: absolute; /* posicionamento absoluto para os botões */
+    top: 50%; /* alinhar os botões verticalmente ao centro */
+    transform: translateY(-50%); /* ajustar para o centro vertical */
+    background: rgba(255, 255, 255, 0.5); /* fundo semi-transparente para os botões */
+    padding: 10px; /* espaçamento interno dos botões */
+    border: none; /* remover bordas dos botões */
+    cursor: pointer; /* cursor como ponteiro ao passar sobre os botões */
+    z-index: 10; /* garantir que os botões fiquem acima das imagens */
+  }
+  
+  .carousel-btn-prev {
+    left: 10px; /* posicionar o botão de navegação à esquerda */
+  }
+  
+  .carousel-btn-next {
+    right: 10px; /* posicionar o botão de navegação à direita */
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Welcome to My Website</h2>
-            <p>This is a sample responsive design.</p>
-        </section>
-    </main>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <img class="carousel-item active" src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Imagem 1">
+    <img class="carousel-item" src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/10/BA_RA-HOTEL-4.jpg?w=1024" alt="Imagem 2">
+    <img class="carousel-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_kIYfyqgeFIjYXkxFKXq4rl-PnQ27Z17Rw&s" alt="Imagem 3">
+    <!-- adicione mais imagens conforme necessário -->
+  </div>
+  <button class="carousel-btn carousel-btn-prev" onclick="prevSlide()">&#10094;</button>
+  <button class="carousel-btn carousel-btn-next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<script>
+  // JavaScript para controlar a navegação do carrossel
+  let slideIndex = 0;
+  const slides = document.getElementsByClassName('carousel-item');
+
+  function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove('active'); // Remove a classe 'active' de todas as imagens
+    }
+    slides[slideIndex].classList.add('active'); // Adiciona a classe 'active' à imagem atual
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex > 0) ? slideIndex - 1 : slides.length - 1;
+    showSlides();
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex < slides.length - 1) ? slideIndex + 1 : 0;
+    showSlides();
+  }
+
+  showSlides(); // mostra a primeira imagem ao carregar a página
+</script>
+
 </body>
 </html>
