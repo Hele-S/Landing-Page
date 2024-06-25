@@ -200,12 +200,14 @@ header ul li a.Botao1:hover, #panel div.fotos ul li:hover {
     color: #B3B3B3;
     position: absolute;
 }
+
 .bridge h1 {
     grid-column-end:2 ;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     font-size: 2.5rem;
 }
+
 .bridge hr {
     grid-row-start: 2;
     padding: 1px;
@@ -213,6 +215,7 @@ header ul li a.Botao1:hover, #panel div.fotos ul li:hover {
     background: linear-gradient(to right, #B3B3B3,#00120B 100%);
     display: inline;
 }
+
 .bridge p{
     justify-self: center;
     grid-row-start: 3;
@@ -224,6 +227,7 @@ header ul li a.Botao1:hover, #panel div.fotos ul li:hover {
     border: 1px solid #B3B3B3;
     text-align: justify;
 }
+
 .bridge form {
     grid-row-start: 3;
     display: grid;
@@ -233,7 +237,9 @@ header ul li a.Botao1:hover, #panel div.fotos ul li:hover {
     border: 1px solid #B3B3B3;
     padding: 3rem;
     background-color: #DAA520;
+    border-radius: 30px 30px 100px 100px;
 }
+
 .bridge form label {
     grid-column-start:1;
     background-color: inherit;
@@ -241,8 +247,22 @@ header ul li a.Botao1:hover, #panel div.fotos ul li:hover {
     font-size: 2rem;
     text-align: center;
     align-self: center;
-
+    font-weight: bold;
 }
+
+.bridge form input {
+    background-color: #B3B3B3;
+    color: #00120B;
+    font-size: 1.2rem;
+}
+
+.bridge form input#Enviar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0 auto;
+    width: 30%;
+}
+
 /* RODAPÉ */
 footer {
     background-color: #550527;
@@ -250,6 +270,7 @@ footer {
     bottom: 0;
     height: 80px;
     width: 100%;
+
 }
 /*Tentar fazer mais responsivo uma hora*/
 /* @media screen and (max-width: 900px){
