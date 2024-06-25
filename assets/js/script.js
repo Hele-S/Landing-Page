@@ -1,6 +1,3 @@
-// submitSent() 
-// {    alert("teste");
-// }
 
 // SLIDES QUARTOS
 let slideIndex = 0;

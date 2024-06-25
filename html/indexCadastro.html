@@ -42,6 +42,7 @@
                                 alt="Foto 3" class="foto-indiv"></li>
                     </ul>
                 </div>
+                <input type="button" value="▼" onclick="scrollFundo()">
             </div>
         </div>
         <div class="bridge">
@@ -50,7 +51,7 @@
             <p>Fique atualizado sobre nossas novidades e ofertas especiais. Inscreva-se na nossa newsletter para não
                 perder nossas promoções e lançamentos. Na Lorem Ipsum Hotels, estamos sempre pensando em como tornar sua
                 próxima estadia ainda melhor.</p>
-            <form action="">
+            <form>
                 <label for="userName">Nome de usuário</label>
                 <input type="text" name="userName" id="userName">
                 <label for="userEmail">Email do usuário</label>
@@ -59,10 +60,34 @@
                 <input type="password" name="userPassword" id="userPassword">
                 <label for="userConfirmPassword">Confirmar senha</label>
                 <input type="password" name="userConfirmPassword" id="userConfirmPassword">
-                <input type="submit" name="Enviar" value="Inscreva-se" id="Enviar" onclick="submitSent()">
+                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="submitSent()">
+                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="scrollFundo()">
             </form>
         </div>
     </div>
+    <script>
+        function scrollFundo() {
+            window.scrollTo(0,document.body.scrollHeight)
+        }
+        function submitSent() {
+            let Nome = document.getElementById('userName').value
+            let Email = document.getElementById('userEmail').value
+            let Senha = document.getElementById('userPassword').value
+            let Confirmação = document.getElementById('userConfirmPassword').value
+            if (Nome === "") {
+                document.getElementById('userName').placeholder = "Campo obrigatório*"
+            }
+            if (Email === "") {
+                document.getElementById('userEmail').placeholder = "Campo obrigatório*"
+            }
+            if (Nome != "" && Email != "") {
+                if (Senha == Confirmação) {
+                    alert('Cadastro de mentirinha feito com sucesso')
+                    location.reload()
+                } else { alert('parece que as senhas não batem...') }
+            }
+        }
+    </script>
 </body>
 
 </html>

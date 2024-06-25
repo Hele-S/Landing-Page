@@ -1,94 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrossel de Imagens</title>
-<style>
-  /* Estilos para o carrossel */
-  .carousel {
-    width: 80%; /* largura do carrossel */
-    margin: 0 auto; /* centralizar o carrossel */
-    overflow: hidden; /* ocultar imagens além do contêiner */
-    position: relative; /* posição relativa para alinhar os botões */
-    height: 500px; /* altura do carrossel */
-  }
-  
-  .carousel-container {
-    position: absolute; /* permite o posicionamento absoluto das imagens dentro do contêiner */
-    width: 100%; /* largura do contêiner */
-    height: 100%; /* altura do contêiner */
-  }
-  
-  .carousel-item {
-    position: absolute; /* permite a sobreposição das imagens */
-    width: 100%; /* largura das imagens */
-    height: 100%; /* altura das imagens */
-    opacity: 0; /* todas as imagens invisíveis por padrão */
-    transition: opacity 0.5s ease; /* transição suave para o efeito de fade */
-  }
-  
-  .carousel-item.active {
-    opacity: 1; /* imagem ativa visível */
-  }
-  
-  .carousel-btn {
-    position: absolute; /* posicionamento absoluto para os botões */
-    top: 50%; /* alinhar os botões verticalmente ao centro */
-    transform: translateY(-50%); /* ajustar para o centro vertical */
-    background: rgba(255, 255, 255, 0.5); /* fundo semi-transparente para os botões */
-    padding: 10px; /* espaçamento interno dos botões */
-    border: none; /* remover bordas dos botões */
-    cursor: pointer; /* cursor como ponteiro ao passar sobre os botões */
-    z-index: 10; /* garantir que os botões fiquem acima das imagens */
-  }
-  
-  .carousel-btn-prev {
-    left: 10px; /* posicionar o botão de navegação à esquerda */
-  }
-  
-  .carousel-btn-next {
-    right: 10px; /* posicionar o botão de navegação à direita */
-  }
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, 
+								initial-scale=1.0">
+	<title>Scroll to Bottom of Div</title>
+	<link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f9fa;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		#scrollableDiv {
+			width: 100%;
+			height: 200px;
+			overflow-y: scroll;
+			border: 1px solid #dee2e6;
+			background-color: #fff;
+			padding: 10px;
+			border-radius: 0.25rem;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+		}
+
+		p {
+			margin: 0 0 10px 0;
+		}
+
+		.scrollBtn {
+			border-radius: 0.25rem;
+		}
+
+		h2 {
+			text-align: center;
+			color: #2e8c46;
+		}
+	</style>
 </head>
+
 <body>
 
-<div class="carousel">
-  <div class="carousel-container">
-    <img class="carousel-item active" src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Imagem 1">
-    <img class="carousel-item" src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/10/BA_RA-HOTEL-4.jpg?w=1024" alt="Imagem 2">
-    <img class="carousel-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_kIYfyqgeFIjYXkxFKXq4rl-PnQ27Z17Rw&s" alt="Imagem 3">
-    <!-- adicione mais imagens conforme necessário -->
-  </div>
-  <button class="carousel-btn carousel-btn-prev" onclick="prevSlide()">&#10094;</button>
-  <button class="carousel-btn carousel-btn-next" onclick="nextSlide()">&#10095;</button>
-</div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div id="scrollableDiv">
+					<h2>Geeks for Geeks</h2>
+					<p>
+						GeeksforGeeks is a computer science
+						portal for geeks. It contains well-written, 
+						well-thought, and well-explained computer 
+						science and programming articles,
+						quizzes, and practice/competitive
+						programming/company interview Questions.
+					</p>
+					<p>
+						GeeksforGeeks has grown tremendously since its
+						inception in 2009 and now has over 2 million
+						registered users and over 10 million
+						page views per month.
+					</p>
+					<p>
+						The website covers topics ranging from algorithms,
+						data structures, programming languages,
+						software development, to interview preparation
+						for various tech companies.
+					</p>
+					<p>
+						GeeksforGeeks also provides a platform for users
+						to practice coding through its coding practice
+						section and participate in coding contests.
+					</p>
+					<p>
+						Overall, GeeksforGeeks is a valuable
+						resource for computer science enthusiasts,
+						students, and professionals seeking to
+						enhance their knowledge and skills in the
+						field of computer science and
+						programming.
+					</p>
+				</div>
+				<button class="btn btn-primary btn-block mt-3 
+							scrollBtn" 
+						onclick="scrollToBottom()">
+					Scroll to Bottom
+				</button>
+			</div>
+		</div>
+	</div>
 
-<script>
-  // JavaScript para controlar a navegação do carrossel
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName('carousel-item');
+	<script>
+	
+		// Get the scrollable div element
+		let scrollableDiv = 
+			document.getElementById('scrollableDiv');
 
-  function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].classList.remove('active'); // Remove a classe 'active' de todas as imagens
-    }
-    slides[slideIndex].classList.add('active'); // Adiciona a classe 'active' à imagem atual
-  }
-
-  function prevSlide() {
-    slideIndex = (slideIndex > 0) ? slideIndex - 1 : slides.length - 1;
-    showSlides();
-  }
-
-  function nextSlide() {
-    slideIndex = (slideIndex < slides.length - 1) ? slideIndex + 1 : 0;
-    showSlides();
-  }
-
-  showSlides(); // mostra a primeira imagem ao carregar a página
-</script>
+		// Function to scroll to the bottom of the div
+		function scrollToBottom() {
+			scrollableDiv.scrollTop = scrollableDiv
+				.scrollHeight;
+		}
+	</script>
 
 </body>
+
 </html>
