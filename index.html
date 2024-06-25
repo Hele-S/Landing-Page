@@ -79,7 +79,13 @@
             if (Email === "") {
                 document.getElementById('userEmail').placeholder = "Campo obrigatório*"
             }
-            if (Nome != "" && Email != "") {
+            if (Senha === "") {
+                document.getElementById('userPassword').placeholder = "Campo obrigatório*"
+            }
+            if (Confirmação === "") {
+                document.getElementById('userConfirmPassword').placeholder = "Campo obrigatório*"
+            }
+            if (Nome != "" && Email != "" && Senha != "") {
                 if (Senha == Confirmação) {
                     alert('Cadastro de mentirinha feito com sucesso')
                     location.reload()
