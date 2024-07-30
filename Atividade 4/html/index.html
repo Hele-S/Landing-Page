@@ -62,7 +62,7 @@
                 <input type="password" name="userPassword" id="userPassword">
                 <label for="userConfirmPassword">Confirmar senha</label>
                 <input type="password" name="userConfirmPassword" id="userConfirmPassword">
-                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="submitSent()">
+                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="handleFormSubmit()">
             </form>
         </div>
     </div>
@@ -70,29 +70,78 @@
         function scrollFundo() {
             window.scrollTo(0, document.body.scrollHeight)
         }
+
+
+
+
         function submitSent() {
-            let Nome = document.getElementById('userName').value
-            let Email = document.getElementById('userEmail').value
-            let Senha = document.getElementById('userPassword').value
-            let Confirmação = document.getElementById('userConfirmPassword').value
-            if (Nome === "") {
-                document.getElementById('userName').placeholder = "Campo obrigatório*"
-            }
-            if (Email === "") {
-                document.getElementById('userEmail').placeholder = "Campo obrigatório*"
-            }
-            if (Senha === "") {
-                document.getElementById('userPassword').placeholder = "Campo obrigatório*"
-            }
-            if (Confirmação === "") {
-                document.getElementById('userConfirmPassword').placeholder = "Campo obrigatório*"
-            }
-            if (Nome != "" && Email != "" && Senha != "") {
-                if (Senha == Confirmação) {
-                    alert('Cadastro de mentirinha feito com sucesso')
-                    location.reload()
-                } else { alert('parece que as senhas não batem...') }
-            }
+            return new Promise((resolve, reject) => {
+                let Nome = document.getElementById('userName').value;
+                let Email = document.getElementById('userEmail').value;
+                let Senha = document.getElementById('userPassword').value;
+                let Confirmação = document.getElementById('userConfirmPassword').value;
+
+                // Limpar mensagens anteriores
+                document.getElementById('userName').placeholder = "Nome";
+                document.getElementById('userEmail').placeholder = "Email";
+                document.getElementById('userPassword').placeholder = "Senha";
+                document.getElementById('userConfirmPassword').placeholder = "Confirmar Senha";
+
+                if (Nome === "") {
+                    document.getElementById('userName').placeholder = "Campo obrigatório*";
+                }
+                if (Email === "") {
+                    document.getElementById('userEmail').placeholder = "Campo obrigatório*";
+                }
+                if (Senha === "") {
+                    document.getElementById('userPassword').placeholder = "Campo obrigatório*";
+                }
+                if (Confirmação === "") {
+                    document.getElementById('userConfirmPassword').placeholder = "Campo obrigatório*";
+                }
+
+                if (Nome !== "" && Email !== "" && Senha !== "" && Confirmação !== "") {
+                    if (Senha === Confirmação) {
+                        resolve({
+                            'Nome': Nome,
+                            'Email': Email,
+                            'Senha': Senha,
+                        });
+                    } else {
+                        reject('Parece que as senhas não batem...');
+                    }
+                } else {
+                    reject('Preencha todos os campos');
+                }
+            });
+        }
+
+        function handleFormSubmit() {
+            submitSent()
+                .then(result => {
+                    let quantidadeUsuario = localStorage['length']
+                    let cadastrado = false
+                    for (k = 0; k <= quantidadeUsuario; k++) {
+                        console.log(localStorage[k])
+                        try {
+                            if (JSON.parse(localStorage[k])['Email'] == result['Email']) {
+                                alert('O Endereço de email já está cadastrado, tente um diferente.')
+                                cadastrado = true
+                                break;
+                            }
+                        } catch {(error) => {
+                            console.error('Erro: ', error)
+                        } }
+                    }
+                    if (!cadastrado) {
+                        localStorage.setItem(quantidadeUsuario + 1, JSON.stringify(result));
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            // location.reload()
+
         }
     </script>
 </body>

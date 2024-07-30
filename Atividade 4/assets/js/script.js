@@ -1,6 +1,5 @@
 function Transição(url) {
     let ajax = new XMLHttpRequest()
-  
     ajax.open('GET', url)
     // console.log(ajax.readyState)
     ajax.onreadystatechange = () => {
@@ -10,7 +9,6 @@ function Transição(url) {
         } catch (erro) {
             console.log('Erro ao acessar a página: ' + erro)
         }
-        
       } 
       if (ajax.readyState == 4 && ajax.status == 404) {
         document.getElementById('content').innerHTML = 'Erro: 404'
