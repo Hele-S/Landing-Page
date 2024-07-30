@@ -1,0 +1,209 @@
+/* Cores: #B3B3B3, #DAA520, #00120B, #002919, #550527 */
+* {
+    background-color: #00120B;
+    margin: 0;
+    list-style: none;
+    /* font-style: ; */
+    text-decoration: none;
+}
+
+/* SEÇÃO 1 */
+.parallax-container{
+    background-image: url("https://st2.depositphotos.com/1037987/9821/i/600/depositphotos_98218968-stock-photo-family-and-friends-sitting-at.jpg"); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover; 
+     position: relative;
+     min-height: 100vh; 
+     width: 100%;
+     margin: auto;
+     right: 0;
+     left: 0;
+     opacity: .5;
+}
+/* PAINEL */
+#panel {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    margin:0 auto;
+    background-color: #DAA520;
+    width: 50%;
+    opacity: .95;
+    border-radius: 30px;
+}
+
+#panel h1 {
+    background-color: inherit;
+    width: fit-content;
+    /* margin: 0 auto; */
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: 800;
+    color: #002919;
+    text-align: center;
+    margin: 0 auto;
+    /* border-radius: 30px; */
+}
+#panel hr{
+    margin: 0 auto;
+    
+    padding: 1px;
+    border: none;
+    background: radial-gradient(#550527,#DAA520 70%);
+    opacity: .8;
+}
+#panel p{
+    all:inherit;
+    background-color:#B3B3B3;
+    width:fit-content;
+    top: 50px;
+    margin: 0 15px 0 15px;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    border: #002919 1px solid;
+    padding: 8px;
+    font-weight: 200;
+    
+}
+
+#panel div.fotos{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 400px; 
+    background: none;
+    width: fit-content;
+    margin:0 auto;
+    
+}
+
+#panel div.fotos ul{
+    float: right;
+    width: fit-content;
+    background: none;
+    padding-left: 0;
+    
+}
+#panel div.fotos ul li {
+    all: inherit;    
+    background-color: none;
+    float: left;
+    margin: 0 20px;
+    transition: all 0.5s;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 208px;
+}
+
+#panel ul li img.foto-indiv{    
+    height: 180px;
+    width: 240px;
+    padding: 10px;
+    border: 1px solid;
+    /* background-color: inherit; */
+    border-image: radial-gradient(circle at center,#DAA502, #550527 99%) 30;
+    border-width: 4px;
+}
+
+ #panel div.fotos #li-foto3 {
+    padding-left: 0;
+}
+ #panel input {
+    background-color: #550527;
+    color: #B3B3B3;
+    position: absolute;
+    bottom: 3rem;
+    right: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    border: none;
+    border-radius: 99px;
+    font-size: 30px;
+    transition:0.5s;
+ }
+ #panel div.fotos ul li:hover, #panel input:hover {
+    box-shadow: 2px 2px 10px #00120B;
+}
+/* FIM PAINEL */
+/* FIM SEÇÃO 1 */
+/* SEÇÃO 2 */
+.bridge {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-rows: auto 1fr ;
+    width: 100%;
+    height: fit-content;
+    color: #B3B3B3;
+    position: absolute;
+}
+
+.bridge h1 {
+    grid-column-end:2 ;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.bridge hr {
+    grid-row-start: 2;
+    padding: 1px;
+    border: none;
+    background: linear-gradient(to right, #B3B3B3,#00120B 100%);
+    display: inline;
+}
+
+.bridge p{
+    justify-self: center;
+    grid-row-start: 3;
+    font-size: 2.5rem;
+    width: 500px;
+    float: left;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #B3B3B3;
+    text-align: justify;
+}
+
+.bridge form {
+    grid-row-start: 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 3rem;
+    border: 1px solid #B3B3B3;
+    padding: 3rem;
+    background-color: #DAA520;
+    border-radius: 30px 30px 100px 100px;
+}
+
+.bridge form label {
+    grid-column-start:1;
+    background-color: inherit;
+    color: #550527;
+    font-size: 2rem;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+}
+
+.bridge form input {
+    background-color: #B3B3B3;
+    color: #00120B;
+    font-size: 1.2rem;
+}
+
+.bridge form input#Enviar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0 auto;
+    width: 30%;
+}
+
+
