@@ -57,6 +57,7 @@
             event.preventDefault()
             conferirDados()
                 .then(result => { contarMensagens(result) })
+                .catch(error => { console.log('Erro: ', error)})
             // contarMensagens()
             //     .then()
         }

@@ -62,7 +62,7 @@
                 <input type="password" name="userPassword" id="userPassword">
                 <label for="userConfirmPassword">Confirmar senha</label>
                 <input type="password" name="userConfirmPassword" id="userConfirmPassword">
-                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="handleFormSubmit()">
+                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="handleSubmit()">
             </form>
         </div>
     </div>
@@ -80,12 +80,6 @@
                 let Email = document.getElementById('userEmail').value;
                 let Senha = document.getElementById('userPassword').value;
                 let Confirmação = document.getElementById('userConfirmPassword').value;
-
-                // Limpar mensagens anteriores
-                document.getElementById('userName').placeholder = "Nome";
-                document.getElementById('userEmail').placeholder = "Email";
-                document.getElementById('userPassword').placeholder = "Senha";
-                document.getElementById('userConfirmPassword').placeholder = "Confirmar Senha";
 
                 if (Nome === "") {
                     document.getElementById('userName').placeholder = "Campo obrigatório*";
@@ -122,7 +116,7 @@
                     let quantidadeUsuario = localStorage['length']
                     let cadastrado = false
                     for (k = 0; k <= quantidadeUsuario; k++) {
-                        console.log(localStorage[k])
+                        // console.log(localStorage[k])
                         try {
                             if (JSON.parse(localStorage[k])['Email'] == result['Email']) {
                                 alert('O Endereço de email já está cadastrado, tente um diferente.')
@@ -130,7 +124,7 @@
                                 break;
                             }
                         } catch {(error) => {
-                            console.error('Erro: ', error)
+                            alert('Erro: ', error)
                         } }
                     }
                     if (!cadastrado) {
@@ -138,7 +132,7 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Erro:', error);
+                    alert('Erro: '+ error);
                 });
             // location.reload()
 
