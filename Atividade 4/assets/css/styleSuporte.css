@@ -3,7 +3,6 @@
     background-color: #00120B;
     margin: 0;
     list-style: none;
-    /* font-style: ; */
     text-decoration: none;
     font-family: t;
 }
@@ -23,13 +22,11 @@
     position: relative;
     background-color: inherit;
     width: fit-content;
-    /* margin: 0 auto; */
     font-family: var(--normal-font);
     font-size: 50px;
     font-weight: 800;
     color: #B3B3B3;
     text-align: center;
-    /* border-radius: 30px; */
 }
 #section1 .container {
     position: absolute;
@@ -37,24 +34,27 @@
     left: 0;
     width: 100vw;
 }
+#content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
 #section1 #left {
-    position: absolute;
+    position: relative;
 }
 #section1 .container p {
     
     background-color: #550527;
-    width: 40rem;
-    /* margin: 0 auto; */
+    width: 35rem;
     font-family: var(--normal-font);
     font-size: 2rem;
     color: #B3B3B3;
     text-align: left;
     margin: 5vh 10vw 0 5vw;
     line-height: 200%;
-    align-items: flex-end;
     padding-left:3rem;
     padding-right: 3rem;
-    vertical-align: text-top;
     border: 1px solid #DAA520;
     border-radius: 15px;
 }
@@ -66,13 +66,7 @@
     font-style: italic;
     
 }
-#section1 .vertical-line{
-    position:absolute;
-    right: 0;
-    top: 0px;
-    height: calc(100vh - 165px);
-    border-right: #B3B3B3 4px solid;
-}
+
 hr{
     position: relative;
     margin: 0 auto;
@@ -84,7 +78,7 @@ hr{
 
 /* FIM SEÇÃO 1 */
 #right {
-    position: absolute;
+    position: relative;
     right:0;
     width:49vw;
     height: fit-content;
@@ -119,6 +113,8 @@ hr{
     background-color: #B3B3B3;
     color: #00120B;
     font-size: 1rem;
+    max-height: 2em;
+    align-self: center;
 }
 
 .container form #labelMessage{
@@ -148,9 +144,3 @@ footer {
     width: 100%;
 
 }
-/*Tentar fazer mais responsivo uma hora*/
-/* @media screen and (max-width: 900px){
-    header img{
-  display: none;
-    }
-} */

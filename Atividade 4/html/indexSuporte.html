@@ -12,7 +12,6 @@
 
 <body>
     <header>
-        <a href="#"><img src="../imgs/logo2.png" alt=""></a>
         <h4>Lorem Ipsum Hotels</h4>
         <ul>
             <li class="item"><a href="#" onclick="Transição('index.html')" class="Botao1">Cadastro</a></li>
@@ -20,35 +19,37 @@
             <li class="item" id="sobre-nos"><a href="#" onclick="Transição('indexSobre.html')" class="Botao1">Sobre
                     nós</a></li>
         </ul>
+        <a href="#" id="logo"><img src="../imgs/logo2.png" alt=""></a>
     </header>
     <main>
         <section id="section1">
             <div class="container">
                 <h1>Compartilhe a sua experiência</h1>
                 <hr>
-                <div id="left">
-                    <p>Queremos saber como foi a sua estadia. Sua opinião nos ajuda a melhorar continuamente nossos
-                        serviços
-                        e a garantir que cada visita seja melhor do que a anterior. Se você teve uma experiência
-                        positiva,
-                        gostaríamos de ouvir sobre o que mais gostou. Se encontrou alguma dificuldade ou acha que
-                        podemos
-                        melhorar em algum aspecto, queremos saber para que possamos corrigir e aprimorar nossos
-                        serviços. <br>
-                        <span>Lorem Ipsum Hotels – Onde o Conforto Encontra a Excelência.</span>
-                    </p>
-                    <div class="vertical-line"></div>
-                </div>
-                <div id="right">
-                    <form action="">
-                        <label for="userName">Nome de usuário</label>
-                        <input type="text" name="userName" id="userName" class="campos">
-                        <label for="userEmail">Email do usuário</label>
-                        <input type="email" name="userEmail" id="userEmail" class="campos">
-                        <label for="message" id="labelMessage">Mensagem</label>
-                        <textarea name="userMessage" id="message" class="campos"></textarea>
-                        <input type="submit" name="Enviar" id="Enviar" onclick="handleSubmit()">
-                    </form>
+                <div id="content">
+                    <div id="left">
+                        <p>Queremos saber como foi a sua estadia. Sua opinião nos ajuda a melhorar continuamente nossos
+                            serviços
+                            e a garantir que cada visita seja melhor do que a anterior. Se você teve uma experiência
+                            positiva,
+                            gostaríamos de ouvir sobre o que mais gostou. Se encontrou alguma dificuldade ou acha que
+                            podemos
+                            melhorar em algum aspecto, queremos saber para que possamos corrigir e aprimorar nossos
+                            serviços. <br>
+                            <span>Lorem Ipsum Hotels – Onde o Conforto Encontra a Excelência.</span>
+                        </p>
+                    </div>
+                    <div id="right">
+                        <form action="">
+                            <label for="userName">Nome de usuário</label>
+                            <input type="text" name="userName" id="userName" class="campos">
+                            <label for="userEmail">Email do usuário</label>
+                            <input type="email" name="userEmail" id="userEmail" class="campos">
+                            <label for="message" id="labelMessage">Mensagem</label>
+                            <textarea name="userMessage" id="message" class="campos"></textarea>
+                            <input type="submit" name="Enviar" id="Enviar" onclick="handleSubmit()">
+                        </form>
+                    </div>
                 </div>
         </section>
     </main>
@@ -57,7 +58,7 @@
             event.preventDefault()
             conferirDados()
                 .then(result => { contarMensagens(result) })
-                .catch(error => { console.log('Erro: ', error)})
+                .catch(error => { console.log('Erro: ', error) })
             // contarMensagens()
             //     .then()
         }
