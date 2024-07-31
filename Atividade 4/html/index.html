@@ -13,7 +13,6 @@
 <body>
     <div id="geral">
         <header>
-            <a href="#"><img src="../imgs/logo2.png" alt=""></a>
             <h4>Lorem Ipsum Hotels</h4>
             <ul>
                 <li class="item"><a href="#" onclick="Transição('index.html')" class="Botao1">Cadastro</a></li>
@@ -21,6 +20,7 @@
                 <li class="item" id="sobre-nos"><a href="#" onclick="Transição('indexSobre.html')" class="Botao1">Sobre
                         nós</a></li>
             </ul>
+            <a href="#" id="logo"><img src="../imgs/logo2.png" alt=""></a>
         </header>
 
         <div class="container">
@@ -32,6 +32,7 @@
                     experiência memorável. Nossas propriedades, localizadas nos destinos mais desejados, combinam luxo
                     sofisticado com hospitalidade acolhedora, garantindo que você se sinta em casa, independentemente de
                     onde estiver.</p>
+
                 <div class="fotos">
                     <ul class="list">
                         <li><img src="https://barahotel.com.br/wp-content/uploads/2022/10/DSC_2608-2.webp" alt="Foto 1"
@@ -49,21 +50,30 @@
         </div>
         <div class="bridge">
             <h1>Conecte-se Conosco</h1>
-            <hr>
-            <p>Fique atualizado sobre nossas novidades e ofertas especiais. Inscreva-se na nossa newsletter para não
-                perder nossas promoções e lançamentos. Na Lorem Ipsum Hotels, estamos sempre pensando em como tornar sua
-                próxima estadia ainda melhor.</p>
-            <form>
-                <label for="userName">Nome de usuário</label>
-                <input type="text" name="userName" id="userName">
-                <label for="userEmail">Email do usuário</label>
-                <input type="email" name="userEmail" id="userEmail">
-                <label for="userPassword">Senha do usuário</label>
-                <input type="password" name="userPassword" id="userPassword">
-                <label for="userConfirmPassword">Confirmar senha</label>
-                <input type="password" name="userConfirmPassword" id="userConfirmPassword">
-                <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="handleSubmit()">
-            </form>
+            <!-- <hr> -->
+            <div id="contents">
+                <!-- <div id="info"> -->
+
+
+                <p>Fique atualizado sobre nossas novidades e ofertas especiais. Inscreva-se na nossa newsletter para
+                    não
+                    perder nossas promoções e lançamentos. Na Lorem Ipsum Hotels, estamos sempre pensando em como
+                    tornar
+                    sua
+                    próxima estadia ainda melhor.</p>
+                <!-- </div> -->
+                <form>
+                    <label for="userName">Nome de usuário</label>
+                    <input type="text" name="userName" id="userName">
+                    <label for="userEmail">Email do usuário</label>
+                    <input type="email" name="userEmail" id="userEmail">
+                    <label for="userPassword">Senha do usuário</label>
+                    <input type="password" name="userPassword" id="userPassword">
+                    <label for="userConfirmPassword">Confirmar senha</label>
+                    <input type="password" name="userConfirmPassword" id="userConfirmPassword">
+                    <input type="button" name="Enviar" value="Inscreva-se" id="Enviar" onClick="handleSubmit()">
+                </form>
+            </div>
         </div>
     </div>
     <script>
@@ -116,23 +126,26 @@
                     let quantidadeUsuario = localStorage['length']
                     let cadastrado = false
                     for (k = 0; k <= quantidadeUsuario; k++) {
-                        // console.log(localStorage[k])
                         try {
                             if (JSON.parse(localStorage[k])['Email'] == result['Email']) {
                                 alert('O Endereço de email já está cadastrado, tente um diferente.')
                                 cadastrado = true
                                 break;
                             }
-                        } catch {(error) => {
-                            alert('Erro: ', error)
-                        } }
+                        } catch {
+                            (error) => {
+                                alert('Erro: ', error)
+                            }
+                        }
                     }
                     if (!cadastrado) {
                         localStorage.setItem(quantidadeUsuario + 1, JSON.stringify(result));
+                        alert("Usuário cadastrado com sucesso!")
+                        window.location.reload();
                     }
                 })
                 .catch(error => {
-                    alert('Erro: '+ error);
+                    alert('Erro: ' + error);
                 });
             // location.reload()
 
