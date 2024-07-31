@@ -16,8 +16,9 @@
         <h4>Lorem Ipsum Hotels</h4>
         <ul>
             <li class="item"><a href="#" onclick="Transição('index.html')" class="Botao1">Cadastro</a></li>
-                <li class="item"><a href="#" onclick="Transição('indexSuporte.html')" class="Botao1">Suporte</a></li>
-                <li class="item" id="sobre-nos"><a href="#" onclick="Transição('indexSobre.html')"  class="Botao1">Sobre nós</a></li>
+            <li class="item"><a href="#" onclick="Transição('indexSuporte.html')" class="Botao1">Suporte</a></li>
+            <li class="item" id="sobre-nos"><a href="#" onclick="Transição('indexSobre.html')" class="Botao1">Sobre
+                    nós</a></li>
         </ul>
     </header>
     <main>
@@ -41,20 +42,63 @@
                 <div id="right">
                     <form action="">
                         <label for="userName">Nome de usuário</label>
-                        <input type="text" name="userName" id="userName">
+                        <input type="text" name="userName" id="userName" class="campos">
                         <label for="userEmail">Email do usuário</label>
-                        <input type="email" name="userEmail" id="userEmail">
+                        <input type="email" name="userEmail" id="userEmail" class="campos">
                         <label for="message" id="labelMessage">Mensagem</label>
-                        <textarea name="message" id="message"></textarea>
-                        <input type="submit" name="Enviar" id="Enviar" onclick="submitSent()">
+                        <textarea name="userMessage" id="message" class="campos"></textarea>
+                        <input type="submit" name="Enviar" id="Enviar" onclick="handleSubmit()">
                     </form>
                 </div>
         </section>
-        <section>
-
-        </section>
     </main>
-
+    <script>
+        function handleSubmit() {
+            event.preventDefault()
+            conferirDados()
+                .then(result => { contarMensagens(result) })
+            // contarMensagens()
+            //     .then()
+        }
+        function conferirDados() {
+            let confere = true
+            return new Promise((resolve, rejected) => {
+                let itens = document.querySelectorAll('.campos')
+                for (i = 0; i < itens.length; i++) {
+                    if (itens[i].value == '') {
+                        if (itens[i].id == 'message') {
+                            alert('Não esqueça de escrever a sua mensagem!!')
+                        } else {
+                            itens[i].placeholder = "Campo obrigatório"
+                        }
+                        confere = false
+                        rejected('Algum campo não foi preenchido corretamente.')
+                        return;
+                        break
+                    }
+                }
+                if (confere) {
+                    resolve({
+                        Nome: document.getElementById('userName').value,
+                        Email: document.getElementById('userEmail').value,
+                        Mensagem: document.getElementById('message').value,
+                    })
+                }
+            })
+        }
+        function contarMensagens(result) {
+            let quantidadeMensagens = localStorage['length']
+            for (k = 0; k <= quantidadeMensagens; k++) {
+                try {
+                    localStorage.setItem(quantidadeMensagens + 1, JSON.stringify(result));
+                } catch {
+                    (error) => {
+                        console.error('Erro: ', error)
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 function Transição(url) {
     let ajax = new XMLHttpRequest()
     ajax.open('GET', url)
-    // console.log(ajax.readyState)
     ajax.onreadystatechange = () => {
       if (ajax.readyState == 4 && ajax.status == 200) {
         try{
